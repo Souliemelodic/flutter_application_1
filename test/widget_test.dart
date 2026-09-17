@@ -37,16 +37,16 @@ testWidgets('5 plus two equals 5', (WidgetTester tester) async {
     );
   });
 
-testWidgets('10 plus two equals 10', (WidgetTester tester) async {
+testWidgets('3 plus two equals 5', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-    await tester.tap(find.text('10'));
+    await tester.tap(find.text('3'));
     await tester.tap(find.text('+'));
-    await tester.tap(find.text('10'));
+    await tester.tap(find.text('2'));
     await tester.tap(find.text('='));
     await tester.pump();
     expect(
       tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
-      '20',
+      '5',
     );
   });
 
@@ -75,16 +75,16 @@ testWidgets('4 times 4', (WidgetTester tester) async {
       '16',
     );
   });
-testWidgets('5 times 4', (WidgetTester tester) async {
+testWidgets('3 times 3', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-    await tester.tap(find.text('5'));
+    await tester.tap(find.text('3'));
     await tester.tap(find.text('x'));
-    await tester.tap(find.text('4'));
+    await tester.tap(find.text('3'));
     await tester.tap(find.text('='));
     await tester.pump();
     expect(
       tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
-      '20',
+      '9',
     );
   });
 
