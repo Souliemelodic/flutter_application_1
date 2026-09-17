@@ -11,20 +11,108 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_application_1/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('two plus two equals four', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.tap(find.text('2'));
+    await tester.tap(find.text('+'));
+    await tester.tap(find.text('2'));
+    await tester.tap(find.text('='));
     await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '4',
+    );
   });
+
+testWidgets('5 plus two equals 5', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('5'));
+    await tester.tap(find.text('+'));
+    await tester.tap(find.text('5'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '10',
+    );
+  });
+
+testWidgets('10 plus two equals 10', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('10'));
+    await tester.tap(find.text('+'));
+    await tester.tap(find.text('10'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '20',
+    );
+  });
+
+  testWidgets('calculator supports multiplication', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('2'));
+    await tester.tap(find.text('x'));
+    await tester.tap(find.text('3'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '6',
+    );
+  });
+
+testWidgets('4 times 4', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('4'));
+    await tester.tap(find.text('x'));
+    await tester.tap(find.text('4'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '16',
+    );
+  });
+testWidgets('5 times 4', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('5'));
+    await tester.tap(find.text('x'));
+    await tester.tap(find.text('4'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '20',
+    );
+  });
+
+testWidgets('4 divided by 2', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('4'));
+    await tester.tap(find.text('/'));
+    await tester.tap(find.text('2'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '2',
+    );
+  });
+testWidgets('20 divided by 4', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.tap(find.text('20'));
+    await tester.tap(find.text('/'));
+    await tester.tap(find.text('4'));
+    await tester.tap(find.text('='));
+    await tester.pump();
+    expect(
+      tester.widget<Text>(find.byKey(const Key('calculator-display'))).data,
+      '5',
+    );
+  });
+
+
+
 }

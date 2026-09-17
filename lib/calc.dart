@@ -213,13 +213,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF00141E).withOpacity(0.3),
+                    color: const Color(0xFF00141E).withValues(alpha: 0.3),
                     offset: const Offset(0, 25),
                     blurRadius: 40,
                     spreadRadius: -10,
                   ),
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
+                    color: Colors.black.withValues(alpha: 0.08),
                     offset: const Offset(0, 2),
                     blurRadius: 8,
                   ),
@@ -249,7 +249,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.4),
+            color: Colors.black.withValues(alpha: 0.4),
             offset: const Offset(0, 6),
             blurRadius: 12,
             spreadRadius: -2,
@@ -459,7 +459,7 @@ class _PressableButtonState extends State<_PressableButton> {
               blurRadius: 0,
             ),
             BoxShadow(
-              color: Colors.black.withOpacity(0.08),
+              color: Colors.black.withValues(alpha: 0.08),
               offset: const Offset(0, 8),
               blurRadius: 14,
             ),
